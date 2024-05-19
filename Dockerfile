@@ -1,5 +1,8 @@
 FROM nginx:latest
-EXPOSE 80
+
+# 修改这里的端口为8080
+EXPOSE 8080
+
 WORKDIR /app
 USER root
 
@@ -13,4 +16,4 @@ RUN apt-get update && apt-get install -y wget unzip iproute2 systemctl && \
     rm -f temp.zip && \
     chmod -v 755 xray entrypoint.sh
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+ENTRYPOINT ["./entrypoint.sh"]
